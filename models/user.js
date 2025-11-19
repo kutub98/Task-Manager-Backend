@@ -7,4 +7,5 @@ const UserSchema = new mongoose.Schema({
   teams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Team" }],
 });
 
+// ..
 module.exports = mongoose.model("User", UserSchema);
