@@ -69,8 +69,6 @@ app.use("/api/teams", teamRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-// ❌ DO NOT START A SERVER ON VERCEL
-// module.exports = app for serverless
 module.exports = app;
 
 // ✔ Start local dev server (nodemon)
