@@ -32,9 +32,10 @@ const limiter = rateLimit({
 app.use("/api", limiter);
 
 // CORS
+
 app.use(
   cors({
-    origin: "http://localhost:3000" || process.env.FRONTEND_URL,
+    origin: ["http://localhost:3000", "https://smart-task-mang.netlify.app"],
     credentials: true,
   })
 );
