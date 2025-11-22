@@ -185,7 +185,7 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/teams", teamRoutes);
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Handle favicon.ico requests
 app.get("/favicon.ico", (req, res) => {
