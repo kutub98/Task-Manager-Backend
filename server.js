@@ -1,12 +1,11 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
 const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
 require("dotenv").config();
-const path = require("path");
+const connectDB = require("./config/db");
 
 // Import routes
 const authRoutes = require("./routes/authRoutes");
@@ -56,41 +55,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 let isConnected = false;
-
-const connectDB = async () => {
-  if (isConnected) {
-    console.log("Using existing database connection");
-    return;
-  }
-
-  try {
-    const mongoURI =
-      process.env.NODE_ENV === "test"
-        ? process.env.MONGODB_TEST_URI
-        : process.env.MONGODB_URI;
-
-    if (!mongoURI) {
-      throw new Error("MongoDB URI is not defined in environment variables");
-    }
-
-    // ✅ Fixed: Removed deprecated options and added serverless optimizations
-    await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
-
-    isConnected = mongoose.connection.readyState === 1;
-    console.log(
-      `MongoDB connected successfully in ${
-        process.env.NODE_ENV || "development"
-      } mode`
-    );
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-    isConnected = false;
-    throw error;
-  }
-};
 
 // Middleware to ensure database connection (BEFORE routes)
 app.use(async (req, res, next) => {
