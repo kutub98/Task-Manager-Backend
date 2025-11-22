@@ -34,7 +34,7 @@ app.use("/api", limiter);
 // CORS
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin: "http://localhost:3000" || process.env.FRONTEND_URL,
     credentials: true,
   })
 );
