@@ -1,21 +1,55 @@
 {
-  "name": "programming",
+  "name": "Smart task Manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "Professional Smart task Manager API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'Build completed'"
+    "build": "echo 'Build completed'",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "create-admin": "node create-admin-quick.js",
+    "test-admin": "node test-admin-login-fixed.js"
   },
-  "author": "kutub",
-  "license": "ISC",
+  "keywords": [
+    "Task",
+    "project",
+    "api",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Kutub Uddin",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
+    "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
-    "express": "^5.1.0",
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.2.1",
+    "express-validator": "^7.0.1",
+    "helmet": "^8.1.0",
+    "http-status": "^1.7.3",
+    "joi": "^18.0.1",
     "jsonwebtoken": "^9.0.2",
-    "nodemon": "^3.1.11",
-    "serverless-http": "^4.0.0"
+    "mongoose": "^8.18.1",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^6.3.3"
   }
 }
